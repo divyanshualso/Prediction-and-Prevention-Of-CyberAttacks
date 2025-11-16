@@ -41,15 +41,15 @@ function handleLogin(event) {
 function checkAuth() {
   const isAdmin = localStorage.getItem('isAdmin') === 'true';
   if (!isAdmin) {
-    // redirect to login
-    window.location.href = 'login.html';
+    // redirect to login (index)
+    window.location.href = 'index.html';
   }
 }
 
 function logout() {
   localStorage.removeItem('isAdmin');
   localStorage.removeItem('adminUser');
-  window.location.href = 'front.html';
+  window.location.href = 'index.html';
 }
 
 function simulateAnalysis() {
@@ -98,9 +98,9 @@ window.addEventListener('DOMContentLoaded', () => {
         // go to demo hub
         window.location.href = 'demo.html';
       } else {
-        // remember intent and go to login
+        // remember intent and go to login (index)
         sessionStorage.setItem('postLoginDemo', '1');
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
       }
     };
   }
@@ -113,7 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (saveBtn) saveBtn.addEventListener('click', ()=> saveNote('predictionNotes'));
     if (clearBtn) clearBtn.addEventListener('click', ()=> clearNote('predictionNotes'));
   }
-  // Prevention notes (on encryption.html)
+  // Prevention notes (removed pages) — keep code safe if future page added
   if (document.getElementById('preventionNotes')) {
     loadNote('preventionNotes');
     const saveBtn = document.getElementById('savePreventionNotes');
